@@ -1,0 +1,9 @@
+examplemod.mixins.json; $modid.mixins.json
+com.examplemod.ExampleMod; $authorid.$modid.$mainclass
+ExampleMod; $modname
+examplemod; $modid
+"license": .+$; "license": "$license",
+"description": .+$; "description": "$description",
+"authors": [^\]]+\],; "authors": ["$authorname"],
+"homepage": .+$; "homepage": "$homepage",
+"sources": .+$; "issues": "$issues"

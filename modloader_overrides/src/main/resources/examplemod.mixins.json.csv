@@ -1,0 +1,3 @@
+"package": .+$; "package": "$authorid.$modid.mixin",
+"compatibilityLevel": [^,]+; "compatibilityLevel": "JAVA_8"
+"mixins": [^\]]+\]; "mixins": ["BothMixins"],\n  "client": ["ClientMixins"],\n  "server": ["ServerMixins"]

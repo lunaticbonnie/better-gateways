@@ -1,0 +1,21 @@
+{
+    "type": "gateways:gate_recipe",
+    "group": "gateways",
+    "pattern": [
+        "###",
+        "#P#",
+        "###"
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:ender_pearl"
+        },
+        "P": {
+            "tag": "minecraft:ender_eye"
+        }
+    },
+    "result": {
+        "id": "gateways:gate_pearl"
+    },
+    "gateway": "gateways:basic/zombie"
+}

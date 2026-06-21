@@ -1,0 +1,3 @@
+import net.fabricmc.api.ModInitializer; import net.minecraftforge.fml.common.Mod;\nimport net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext
+public class .+? implements ModInitializer; @Mod($mainclass.MOD_ID)\npublic final class $mainclass
+@Override\s+public void onInitialize\(\) {}; public $mainclass(FMLJavaModLoadingContext ignoredContext) {}

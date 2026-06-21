@@ -1,0 +1,240 @@
+{
+    "type": "gateways:normal",
+    "size": "large",
+    "color": "#CF352E",
+    "spawn_algorithm": "gateways:inward_spiral",
+    "boss_event": {
+        "fog": false,
+        "mode": "name_plate"
+    },
+    "rules": {
+        "remove_mobs_on_failure": false
+    },
+    "waves": [
+        {
+            "max_wave_time": 6000,
+            "setup_time": 200,
+            "entities": [
+                {
+                    "type": "gateways:standard",
+                    "count": 5,
+                    "entity": "minecraft:zombified_piglin"
+                },
+                {
+                    "type": "gateways:standard",
+                    "count": 3,
+                    "entity": "minecraft:wither_skeleton"
+                }
+            ],
+            "rewards": [
+                {
+                    "type": "gateways:entity_loot",
+                    "entity": "minecraft:zombified_piglin",
+                    "rolls": 10
+                },
+                {
+                    "type": "gateways:entity_loot",
+                    "entity": "minecraft:wither_skeleton",
+                    "rolls": 10
+                }
+            ]
+        },
+        {
+            "max_wave_time": 6000,
+            "setup_time": 200,
+            "entities": [
+                {
+                    "type": "gateways:standard",
+                    "count": 8,
+                    "entity": "minecraft:zombified_piglin"
+                },
+                {
+                    "type": "gateways:standard",
+                    "count": 5,
+                    "entity": "minecraft:wither_skeleton"
+                },
+                {
+                    "type": "gateways:standard",
+                    "count": 3,
+                    "entity": "minecraft:blaze"
+                }
+            ],
+            "rewards": [
+                {
+                    "type": "gateways:entity_loot",
+                    "entity": "minecraft:zombified_piglin",
+                    "rolls": 15
+                },
+                {
+                    "type": "gateways:entity_loot",
+                    "entity": "minecraft:wither_skeleton",
+                    "rolls": 15
+                },
+                {
+                    "type": "gateways:entity_loot",
+                    "entity": "minecraft:blaze",
+                    "rolls": 10
+                }
+            ]
+        },
+        {
+            "max_wave_time": 6000,
+            "setup_time": 200,
+            "entities": [
+                {
+                    "type": "gateways:standard",
+                    "count": 8,
+                    "entity": "minecraft:zombified_piglin"
+                },
+                {
+                    "type": "gateways:standard",
+                    "count": 5,
+                    "entity": "minecraft:wither_skeleton"
+                },
+                {
+                    "type": "gateways:standard",
+                    "count": 3,
+                    "desc": "name.gateways.withered_ranger",
+                    "entity": "minecraft:wither_skeleton",
+                    "finalize_spawn": false,
+                    "nbt": {
+                        "CustomName": {
+                            "translate": "name.gateways.withered_ranger",
+                            "color": "red"
+                        },
+                        "CustomNameVisible": 1
+                    },
+                    "modifiers": [
+                        {
+                            "type": "gateways:gear_set",
+                            "gear_set": "gateways:chain_with_bow"
+                        }
+                    ]
+                },
+                {
+                    "type": "gateways:standard",
+                    "count": 3,
+                    "entity": "minecraft:blaze"
+                }
+            ],
+            "rewards": [
+                {
+                    "type": "gateways:entity_loot",
+                    "entity": "minecraft:zombified_piglin",
+                    "rolls": 15
+                },
+                {
+                    "type": "gateways:entity_loot",
+                    "entity": "minecraft:wither_skeleton",
+                    "rolls": 30
+                },
+                {
+                    "type": "gateways:entity_loot",
+                    "entity": "minecraft:blaze",
+                    "rolls": 15
+                }
+            ]
+        },
+        {
+            "max_wave_time": 6000,
+            "setup_time": 200,
+            "entities": [
+                {
+                    "type": "gateways:standard",
+                    "desc": "name.gateways.butcher",
+                    "entity": "minecraft:piglin_brute",
+                    "finalize_spawn": false,
+                    "nbt": {
+                        "CustomName": {
+                            "translate": "name.gateways.butcher",
+                            "color": "red"
+                        },
+                        "CustomNameVisible": 1,
+                        "IsImmuneToZombification": 1
+                    },
+                    "modifiers": [
+                        {
+                            "type": "gateways:gear_set",
+                            "gear_set": "gateways:gold_with_axe"
+                        }
+                    ]
+                },
+                {
+                    "type": "gateways:standard",
+                    "count": 5,
+                    "desc": "name.gateways.withered_ranger",
+                    "entity": "minecraft:wither_skeleton",
+                    "finalize_spawn": false,
+                    "nbt": {
+                        "CustomName": {
+                            "translate": "name.gateways.withered_ranger",
+                            "color": "red"
+                        },
+                        "CustomNameVisible": 1
+                    },
+                    "modifiers": [
+                        {
+                            "type": "gateways:gear_set",
+                            "gear_set": "gateways:chain_with_bow"
+                        }
+                    ]
+                },
+                {
+                    "type": "gateways:standard",
+                    "count": 3,
+                    "entity": "minecraft:blaze"
+                }
+            ],
+            "rewards": [
+                {
+                    "type": "gateways:entity_loot",
+                    "entity": "minecraft:piglin_brute",
+                    "rolls": 20
+                },
+                {
+                    "type": "gateways:entity_loot",
+                    "entity": "minecraft:wither_skeleton",
+                    "rolls": 40
+                },
+                {
+                    "type": "gateways:entity_loot",
+                    "entity": "minecraft:blaze",
+                    "rolls": 40
+                }
+            ]
+        }
+    ],
+    "rewards": [
+        {
+            "type": "gateways:loot_table",
+            "desc": "rewards.gateways.loot_table.nether_bridge",
+            "loot_table": "minecraft:chests/nether_bridge",
+            "rolls": 10
+        },
+        {
+            "type": "gateways:stack",
+            "stack": {
+                "components": {
+                    "minecraft:block_entity_data": {
+                        "SpawnData": {
+                            "entity": {
+                                "id": "minecraft:wither_skeleton"
+                            }
+                        },
+                        "id": "minecraft:mob_spawner"
+                    },
+                    "minecraft:custom_name": "Wither Skeleton Spawner"
+                },
+                "id": "minecraft:spawner"
+            }
+        }
+    ],
+    "failures": [
+        {
+            "type": "gateways:explosion",
+            "block_damage": true,
+            "fire": true,
+            "strength": 4.0
+        }
+    ]
+}

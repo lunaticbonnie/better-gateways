@@ -1,0 +1,2 @@
+it.options.release = .+$; it.options.release = 17
+sourceCompatibility = .+$; sourceCompatibility = JavaVersion.VERSION_17
