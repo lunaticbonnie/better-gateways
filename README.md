@@ -3,7 +3,7 @@ Better settings for the [Gateways to Eternity](https://www.curseforge.com/minecr
 
 1) Rebalance gateways to work alongside [Champions](https://www.curseforge.com/minecraft/mc-mods/champions-unofficial).
     - Increase gateway timeout per wave from 50 seconds to 5 minutes.
-    - Remove mob attributes like increased health/armor.
+    - Remove wave modifiers for attributes like increased health/armor.
     - Make gateways keep mobs on failure.
     - Move gateway UI to above the gateway to not block the Champions UI.
 2) Rework basic gateways
