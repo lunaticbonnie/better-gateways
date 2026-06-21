@@ -2,14 +2,34 @@
 Better settings for the [Gateways to Eternity](https://www.curseforge.com/minecraft/mc-mods/gateways-to-eternity) Minecraft mod.
 
 1) Rebalance gateways to work alongside [Champions](https://www.curseforge.com/minecraft/mc-mods/champions-unofficial).
+    - Change gateway timeout from 50 seconds to 5 minutes.
     - Remove mob attributes like increased health/armor.
     - Make gateways keep mobs on failure.
     - Move gateway UI to above the gateway to not block the Champions UI.
-    - Remove endless gateways.
 2) Rework basic gateways
     - Rework Slime/Enderman/Blaze gateways to have unique spawning mechanics.
-    - Add Zombie/Skeleton gateways.
-    - Simplify recipes to 1 Ender Eye + 8 mob drops
+    - Add Skeleton gateways.
+    - Simplify recipes to 1 Ender Eye + 8 mob drops.
+3) Rework endless gateways
+    - Remove default endless gateways.
+    - Add endless Zombie gateway.
+
+## Todo list
+- Append override type:
+```
+dependencies {
+    implementation 'curse.maven:gateways-to-eternity-417802:6926284'
+    implementation 'curse.maven:apothic-attributes-898963:7445079'
+    implementation 'curse.maven:placebo-283644:6926281'
+}
+```
+```
+[[dependencies.${mod_id}]]
+modId="gateways"
+type="required"
+ordering="NONE"
+side="BOTH"
+```
 
 ## dev
 ```
