@@ -11,7 +11,7 @@
             "item": "minecraft:blaze_rod"
         },
         "P": {
-            "tag": "minecraft:ender_eye"
+            "item": "minecraft:ender_eye"
         }
     },
     "result": {
