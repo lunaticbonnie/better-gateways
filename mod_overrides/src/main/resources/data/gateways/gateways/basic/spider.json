@@ -1,14 +1,15 @@
 {
 	"type": "gateways:normal",
 	"size": "small",
-	"color": "#ffa621",
+	"color": "#700000",
 	"spawn_algorithm": "gateways:inward_spiral",
 	"boss_event": {
 		"fog": false,
 		"mode": "name_plate"
 	},
 	"rules": {
-		"remove_mobs_on_failure": false
+		"remove_mobs_on_failure": false,
+		"default_drop_chance": 0.5
 	},
 	"waves": [
 		{
@@ -17,14 +18,14 @@
 			"entities": [
 				{
 					"type": "gateways:standard",
-					"count": 3,
-					"entity": "minecraft:blaze"
+					"count": 1,
+					"entity": "minecraft:spider"
 				}
 			],
 			"rewards": [
 				{
 					"type": "gateways:entity_loot",
-					"entity": "minecraft:blaze",
+					"entity": "minecraft:spider",
 					"rolls": 4
 				}
 			]
@@ -35,14 +36,19 @@
 			"entities": [
 				{
 					"type": "gateways:standard",
-					"count": 5,
-					"entity": "minecraft:blaze"
+					"count": 2,
+					"entity": "minecraft:spider"
+				},
+				{
+					"type": "gateways:standard",
+					"count": 1,
+					"entity": "minecraft:cave_spider"
 				}
 			],
 			"rewards": [
 				{
 					"type": "gateways:entity_loot",
-					"entity": "minecraft:blaze",
+					"entity": "minecraft:spider",
 					"rolls": 8
 				}
 			]
@@ -53,14 +59,20 @@
 			"entities": [
 				{
 					"type": "gateways:standard",
-					"count": 7,
-					"entity": "minecraft:blaze"
+					"count": 6,
+					"entity": "minecraft:spider"
+				},
+				{
+					"type": "gateways:standard",
+					"count": 1,
+					"entity": "minecraft:cave_spider",
+					"nbt": "{Passengers:[{id:'minecraft:skeleton'}]}"
 				}
 			],
 			"rewards": [
 				{
 					"type": "gateways:entity_loot",
-					"entity": "minecraft:blaze",
+					"entity": "minecraft:spider",
 					"rolls": 16
 				}
 			]
@@ -72,7 +84,7 @@
 				{
 					"type": "gateways:standard",
 					"count": 10,
-					"entity": "minecraft:blaze"
+					"entity": "minecraft:cave_spider"
 				}
 			]
 		}
@@ -85,8 +97,13 @@
 		},
 		{
 			"type": "gateways:entity_loot",
-			"entity": "minecraft:blaze",
-			"rolls": 40
+			"entity": "minecraft:spider",
+			"rolls": 20
+		},
+		{
+			"type": "gateways:entity_loot",
+			"entity": "minecraft:cave_spider",
+			"rolls": 20
 		}
 	]
 }

@@ -1,7 +1,7 @@
 {
 	"type": "gateways:normal",
 	"size": "small",
-	"color": "#FFFF84",
+	"color": "#FFFFFF",
 	"spawn_algorithm": "gateways:inward_spiral",
 	"boss_event": {
 		"fog": false,
@@ -73,7 +73,7 @@
 				{
 					"type": "gateways:standard",
 					"count": 10,
-					"entity": "minecraft:skeleton"
+					"entity": "minecraft:wither_skeleton"
 				}
 			]
 		}
