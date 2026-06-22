@@ -8,7 +8,7 @@ Better settings for the [Gateways to Eternity](https://www.curseforge.com/minecr
     - Move gateway UI to above the gateway to not block the Champions UI.
 2) Rework basic gateways
     - Rework Slime/Enderman/Blaze gateways to have unique spawning mechanics.
-    - Add Creeper/Spider/Skeleton gateways.
+    - Add Spider/Skeleton gateways.
     - Simplify recipes to 1 Ender Eye + 8 mob drops.
 3) Rework endless gateways
     - Remove default endless gateways.
