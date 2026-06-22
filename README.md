@@ -16,23 +16,6 @@ Better settings for the [Gateways to Eternity](https://www.curseforge.com/minecr
 
 Available on [CurseForge](https://www.curseforge.com/minecraft/mc-mods/better-gateways).
 
-## Todo list
-- Append override type:
-```
-dependencies {
-    implementation 'curse.maven:gateways-to-eternity-417802:6926284'
-    implementation 'curse.maven:apothic-attributes-898963:7445079'
-    implementation 'curse.maven:placebo-283644:6926281'
-}
-```
-```
-[[dependencies.${mod_id}]]
-modId="gateways"
-type="required"
-ordering="NONE"
-side="BOTH"
-```
-
 ## dev
 ```
 Download https://github.com/Patrolin/justice
