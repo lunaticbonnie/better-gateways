@@ -222,8 +222,7 @@
 							}
 						},
 						"id": "minecraft:mob_spawner"
-					},
-					"minecraft:custom_name": "Wither Skeleton Spawner"
+					}
 				},
 				"id": "minecraft:spawner"
 			}
