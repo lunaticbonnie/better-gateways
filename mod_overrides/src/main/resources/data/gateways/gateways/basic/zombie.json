@@ -1,54 +1,54 @@
 {
-    "type": "gateways:endless",
-    "size": "medium",
-    "color": "#00A7A7",
-    "spawn_algorithm": "gateways:inward_spiral",
-    "boss_event": {
-        "fog": false,
-        "mode": "name_plate"
-    },
-    "rules": {
-        "remove_mobs_on_failure": false,
-        "default_drop_chance": 0.5
-    },
-    "base_wave": {
-        "max_wave_time": 6000,
-        "setup_time": 140,
-        "entities": [
-            {
-              "type": "gateways:standard",
-              "count": 10,
-              "entity": "minecraft:zombie"
-            }
-        ],
-        "rewards": [
-          {
-            "type": "gateways:experience",
-            "experience": 100,
-            "orb_size": 25
-          }
-        ]
-    },
-    "modifiers": [
-      {
-        "application_mode": {
-          "type": "gateways:after_every_n_waves",
-          "max": 9,
-          "waves": 1
-        },
-        "entities": [
-          {
-            "entity": "minecraft:zombie",
-            "count": 10
-          }
-        ],
-        "rewards": [
-          {
-            "type": "gateways:experience",
-            "experience": 40,
-            "orb_size": 40
-          }
-        ]
-      }
-    ]
+	"type": "gateways:endless",
+	"size": "medium",
+	"color": "#00A7A7",
+	"spawn_algorithm": "gateways:inward_spiral",
+	"boss_event": {
+		"fog": false,
+		"mode": "name_plate"
+	},
+	"rules": {
+		"remove_mobs_on_failure": false,
+		"default_drop_chance": 0.5
+	},
+	"base_wave": {
+		"max_wave_time": 6000,
+		"setup_time": 140,
+		"entities": [
+			{
+			  "type": "gateways:standard",
+			  "count": 10,
+			  "entity": "minecraft:zombie"
+			}
+		],
+		"rewards": [
+		  {
+			"type": "gateways:experience",
+			"experience": 100,
+			"orb_size": 25
+		  }
+		]
+	},
+	"modifiers": [
+	  {
+		"application_mode": {
+		  "type": "gateways:after_every_n_waves",
+		  "max": 9,
+		  "waves": 1
+		},
+		"entities": [
+		  {
+			"entity": "minecraft:zombie",
+			"count": 10
+		  }
+		],
+		"rewards": [
+		  {
+			"type": "gateways:experience",
+			"experience": 40,
+			"orb_size": 40
+		  }
+		]
+	  }
+	]
 }
