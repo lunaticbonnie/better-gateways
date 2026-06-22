@@ -14,6 +14,8 @@ Better settings for the [Gateways to Eternity](https://www.curseforge.com/minecr
     - Remove default endless gateways.
     - Add endless Zombie gateway.
 
+Available on [CurseForge](https://www.curseforge.com/minecraft/mc-mods/better-gateways).
+
 ## Todo list
 - Append override type:
 ```
