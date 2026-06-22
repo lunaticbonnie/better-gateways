@@ -12,7 +12,7 @@ Better settings for the [Gateways to Eternity](https://www.curseforge.com/minecr
     - Simplify recipes to 1 Ender Eye + 8 mob drops.
 3) Rework endless gateways
     - Remove default endless gateways.
-    - Add endless Zombie gateway.
+    - Add endless Creeper/Zombie gateways.
 
 Available on [CurseForge](https://www.curseforge.com/minecraft/mc-mods/better-gateways).
 

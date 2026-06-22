@@ -1,0 +1,5 @@
+[[dependencies.${mod_id}]]
+modId="gateways"
+type="required"
+ordering="NONE"
+side="BOTH"
