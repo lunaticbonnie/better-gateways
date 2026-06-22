@@ -9,7 +9,7 @@
   },
   "rules": {
     "remove_mobs_on_failure": false,
-    "spawn_range": 20,
+    "spawn_range": 40,
     "leash_range": 64,
     "follow_range_boost": 64
   },
@@ -19,14 +19,14 @@
     "entities": [
       {
         "type": "gateways:standard",
-        "count": 1,
+        "count": 2,
         "entity": "minecraft:creeper"
       }
     ],
     "rewards": [
       {
         "type": "gateways:experience",
-        "experience": 25,
+        "experience": 100,
         "orb_size": 25
       }
     ]
