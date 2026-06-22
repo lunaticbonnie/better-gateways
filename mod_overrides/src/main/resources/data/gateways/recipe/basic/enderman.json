@@ -1,21 +1,21 @@
 {
-    "type": "gateways:gate_recipe",
-    "group": "gateways",
-    "pattern": [
-        "###",
-        "#P#",
-        "###"
-    ],
-    "key": {
-        "#": {
-            "tag": "c:ender_pearls"
-        },
-        "P": {
-            "item": "minecraft:ender_eye"
-        }
-    },
-    "result": {
-        "id": "gateways:gate_pearl"
-    },
-    "gateway": "gateways:basic/zombie"
+	"type": "gateways:gate_recipe",
+	"group": "gateways",
+	"pattern": [
+		"###",
+		"#P#",
+		"###"
+	],
+	"key": {
+		"#": {
+			"tag": "c:ender_pearls"
+		},
+		"P": {
+			"item": "minecraft:ender_eye"
+		}
+	},
+	"result": {
+		"id": "gateways:gate_pearl"
+	},
+	"gateway": "gateways:basic/zombie"
 }

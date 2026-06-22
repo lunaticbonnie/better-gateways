@@ -1,21 +1,21 @@
 {
-    "type": "gateways:gate_recipe",
-    "group": "gateways",
-    "pattern": [
-        "###",
-        "#P#",
-        "###"
-    ],
-    "key": {
-        "#": {
-            "item": "minecraft:slime_ball"
-        },
-        "P": {
-            "item": "minecraft:ender_eye"
-        }
-    },
-    "result": {
-        "id": "gateways:gate_pearl"
-    },
-    "gateway": "gateways:basic/zombie"
+	"type": "gateways:gate_recipe",
+	"group": "gateways",
+	"pattern": [
+		"###",
+		"#P#",
+		"###"
+	],
+	"key": {
+		"#": {
+			"item": "minecraft:slime_ball"
+		},
+		"P": {
+			"item": "minecraft:ender_eye"
+		}
+	},
+	"result": {
+		"id": "gateways:gate_pearl"
+	},
+	"gateway": "gateways:basic/zombie"
 }
