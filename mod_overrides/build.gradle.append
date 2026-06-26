@@ -1,5 +1,4 @@
 repositories {
-    // Add here additional repositories if required by some of the dependencies below.
     exclusiveContent {
         forRepository {
             maven {
@@ -16,7 +15,6 @@ dependencies {
     implementation 'curse.maven:roughly-enough-items-310111:6199140'
     implementation 'curse.maven:architectury-api-419699:5786327'
     implementation 'curse.maven:cloth-config-348521:5729127'
-
 
     implementation 'curse.maven:gateways-to-eternity-417802:6926284'
     implementation 'curse.maven:apothic-attributes-898963:7445079'

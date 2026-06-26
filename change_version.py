@@ -25,6 +25,15 @@ def clean_path(path: str, expect_exists: bool):
 def clean_template():
   clean_path("current/.github", False)
   clean_path("current/README.md", False)
+def copy_path(src_path: str, dest_path: str):
+  if os.path.isdir(src_path):
+    os.mkdir(dest_path)
+    for file_name in os.listdir(src_path):
+      copy_path(f"{src_path}/{file_name}", f"{dest_path}/{file_name}")
+  else:
+    with open(src_path, "rb") as src_file:
+      with open(dest_path, "xb") as dest_file:
+        dest_file.write(src_file.read())
 
 @dataclass
 class PathInfo:
@@ -201,6 +210,7 @@ def apply_overrides(src: PathInfo, dest: PathInfo):
       with open(dest.path, "a") as dest_file:
         dest_file.write(src_file.read())
     else:
+      # create or overwrite the file
       src_file.close()
       src_file = open(src.path, "rb")
       with open(dest.path, "wb+") as dest_file:
@@ -237,8 +247,11 @@ if __name__ == "__main__":
   # change to the specified version
   clean_path("current", False)
   if target_version != "clean":
-    with ZipFile(template_path) as z:
-      z.extractall("current")
+    if os.path.isfile(template_path):
+      with ZipFile(template_path) as z:
+        z.extractall("current")
+    else:
+      copy_path(template_path, "current")
     if target_version.startswith("forge"):
       _, minecraft_version, forge_version, *_ = template_name.split("-")
       env["minecraft_version"] = minecraft_version
