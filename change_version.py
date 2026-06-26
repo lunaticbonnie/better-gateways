@@ -129,7 +129,8 @@ def version_matches(src_version_string: str, dest_version_string: str) -> bool:
     raise ValueError(f"Invalid src_version: '{src_version_string}'")
 
 late_removes: list[str] = []
-late_renametos: list[str] = []
+late_rename_tos: list[str] = []
+late_copy_tos: list[str] = []
 def replace_variables(left: str, string: str) -> str:
   while (match := re.search(r"\$[A-Za-z0-9_]+", string)) != None:
     variable_name = match.group(0)[1:]
@@ -216,7 +217,12 @@ def apply_overrides(src: PathInfo, dest: PathInfo):
       rename_from = src.name[:-len(".laterenameto")]
       dest_dir = dest.path.rsplit("/", 1)[0]
       rename_to = src_file.read().strip()
-      late_renametos.append([f"{dest_dir}/{rename_from}", f"{dest_dir}/{rename_to}"])
+      late_rename_tos.append([f"{dest_dir}/{rename_from}", f"{dest_dir}/{rename_to}"])
+    elif src.name.endswith(".latecopyto"):
+      rename_from = src.name[:-len(".latecopyto")]
+      dest_dir = dest.path.rsplit("/", 1)[0]
+      rename_to = src_file.read().strip()
+      late_copy_tos.append([f"{dest_dir}/{rename_from}", f"{dest_dir}/{rename_to}"])
     elif src.name.endswith(".append"):
       dest.path = dest.path[:-len(".append")]
       assertf(os.path.exists(dest.path), f"Cannot append to nonexistent file: '{dest.path}'")
@@ -283,8 +289,15 @@ if __name__ == "__main__":
     clean_template()
     for src_path in ["modloader_overrides", "mod_overrides"]:
       apply_overrides(PathInfo.from_dir_path(src_path), PathInfo.from_dir_path("current", target_version))
-    for renameto in late_renametos:
-      src_path, dest_path = renameto
+    for copy_info in late_copy_tos:
+      src_path, dest_path = copy_info
+      print(f"  '{src_path}' -> '{dest_path}'")
+      if os.path.isdir(src_path):
+        shutil.copytree(src_path, dest_path)
+      else:
+        shutil.copy(src_path, dest_path)
+    for rename_info in late_rename_tos:
+      src_path, dest_path = rename_info
       print(f"  '{src_path}' -> '{dest_path}'")
       os.rename(src_path, dest_path)
     for path in late_removes:
