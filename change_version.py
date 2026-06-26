@@ -120,6 +120,8 @@ def version_matches(src_version_string: str, dest_version_string: str) -> bool:
     else:
       to_ver = parse_version(from_ver.continued)
       return dest_ver.numbers >= from_ver.numbers and dest_ver.numbers <= to_ver.numbers
+  elif from_ver.comparison == "+":
+    return dest_ver.numbers == from_ver.numbers
   elif from_ver.comparison == "":
     return True
   else:

@@ -1,0 +1,20 @@
+repositories {
+    exclusiveContent {
+        forRepository {
+            maven {
+                url "https://cursemaven.com"
+            }
+        }
+        filter {
+            includeGroup "curse.maven"
+        }
+    }
+}
+dependencies {
+    // https://cursemaven.com/
+    implementation 'curse.maven:jei-238222:8292136'
+
+    implementation 'curse.maven:gateways-to-eternity-417802:8249043'
+    implementation 'curse.maven:apothic-attributes-898963:8182592'
+    implementation 'curse.maven:placebo-283644:8249025'
+}
