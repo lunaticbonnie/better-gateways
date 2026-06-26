@@ -2,14 +2,15 @@ type = "shaped"
 group = "gateways"
 
 items :: {}
-#.tag = "c:gunpowders"
-P.item = "minecraft:ender_eye"
+# = "#c:gunpowders"
+P = "minecraft:ender_eye"
 
 shape :: []
 "###"
 "#P#"
 "###"
 
-output :: {}
-result.id = "gateways:gate_pearl"
-gateway = "gateways:basic/creeper"
+result :: {}
+id = "gateways:gate_pearl"
+result.components :: {}
+gateways:gateway = "gateways:basic/creeper"

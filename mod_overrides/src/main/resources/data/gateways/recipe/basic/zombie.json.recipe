@@ -2,14 +2,15 @@ type = "shaped"
 group = "gateways"
 
 items :: {}
-#.item = "minecraft:rotten_flesh"
-P.item = "minecraft:ender_eye"
+# = "minecraft:rotten_flesh"
+P = "minecraft:ender_eye"
 
 shape :: []
 "###"
 "#P#"
 "###"
 
-output :: {}
-result.id = "gateways:gate_pearl"
-gateway = "gateways:basic/zombie"
+result :: {}
+id = "gateways:gate_pearl"
+result.components :: {}
+gateways:gateway = "gateways:basic/zombie"

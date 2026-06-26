@@ -128,7 +128,7 @@ def version_matches(src_version_string: str, dest_version_string: str) -> bool:
     raise ValueError(f"Invalid src_version: '{src_version_string}'")
 
 late_removes: list[str] = []
-def replace_variables(string: str) -> str:
+def replace_variables(left: str, string: str) -> str:
   while (match := re.search(r"\$[A-Za-z0-9_]+", string)) != None:
     variable_name = match.group(0)[1:]
     try:
@@ -173,7 +173,7 @@ def apply_overrides(src: PathInfo, dest: PathInfo):
           left, right = split
           left = left.strip()
           right = right.strip()
-          right = replace_variables(right)
+          right = replace_variables(left, right)
           right = right.replace("\\n", "\n")
           print(f"  '{left}' -> '{right}'")
           content = re.sub(left, lambda _match: right, content, 0, re.MULTILINE)
@@ -195,7 +195,7 @@ def apply_overrides(src: PathInfo, dest: PathInfo):
       dest_dir = from_path.rsplit("/", 1)[0]
       dest_name = ""
       with open(src.path, "r") as src_file:
-        dest_name = replace_variables(src_file.read().strip())
+        dest_name = replace_variables("", src_file.read().strip())
       to_path = f"{dest_dir}/{dest_name}"
       print(f"  '{from_path}' -> '{to_path}'")
       clean_path(to_path, False)

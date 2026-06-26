@@ -1,6 +1,12 @@
 import json
 from typing import Any, cast
 
+def get_nested(data: dict[str, Any], nested_key: str) -> Any:
+  current = data
+  for key in nested_key.split("."):
+    current = current[key]
+  return current
+
 def set_nested(data: dict[str, Any], nested_key: str, value: Any) -> dict[str, Any]:
   current = data
   key_parts = nested_key.split(".")
@@ -38,20 +44,32 @@ def bake_recipe(src_path: str, dest_path: str, mc_version: list[int]):
         value = parse_value(line.strip())
         if operator == "::":
           current = set_nested(data, key, value)
-          print(f"BAKE: '{key}' {operator} {value}")
         else:
           set_nested(current, key, value)
-          print(f"BAKE: '{key}' {operator} {value}")
       else:
         value = parse_value(line.strip())
         cast(list[Any], current).append(value)
-        print(f"BAKE: {value}")
   # print recipe in the appropriate format
   recipe = {}
-  recipe["type"] = "gateways:gate_recipe"
-  recipe["group"] = data["group"]
-  recipe["pattern"] = data["shape"]
-  recipe["key"] = data["items"]
-  recipe = {**recipe, **data["output"]}
+  if mc_version >= [26]:
+    recipe["type"] = "minecraft:crafting_shaped"
+    recipe["category"] = "misc"
+    recipe["group"] = data["group"]
+    recipe["key"] = data["items"]
+    recipe["pattern"] = data["shape"]
+    recipe["result"] = data["result"]
+  else:
+    recipe["type"] = "gateways:gate_recipe"
+    recipe["group"] = data["group"]
+    recipe["pattern"] = data["shape"]
+    items = {}
+    for k, v in cast(dict, data["items"]).items():
+      if v[0] == '#':
+        set_nested(items, f"{k}.tag", v[1:])
+      else:
+        set_nested(items, f"{k}.item", v)
+    recipe["key"] = items
+    set_nested(recipe, "result.id", get_nested(data, "result.id"))
+    set_nested(recipe, "gateway", get_nested(data, "result.components.gateways:gateway"))
   with open(dest_path, "w") as dest_file:
     json.dump(recipe, dest_file, indent=2, sort_keys=False)
