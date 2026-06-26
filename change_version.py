@@ -1,6 +1,7 @@
 from dataclasses import dataclass
 import os
 import re
+import shutil
 import sys
 import time
 from typing import cast
@@ -128,6 +129,7 @@ def version_matches(src_version_string: str, dest_version_string: str) -> bool:
     raise ValueError(f"Invalid src_version: '{src_version_string}'")
 
 late_removes: list[str] = []
+late_renametos: list[str] = []
 def replace_variables(left: str, string: str) -> str:
   while (match := re.search(r"\$[A-Za-z0-9_]+", string)) != None:
     variable_name = match.group(0)[1:]
@@ -210,6 +212,11 @@ def apply_overrides(src: PathInfo, dest: PathInfo):
     elif src.name.endswith(".lateremove"):
       dest.path = dest.path[:-len(".lateremove")]
       late_removes.append(dest.path)
+    elif src.name.endswith(".laterenameto"):
+      rename_from = src.name[:-len(".laterenameto")]
+      dest_dir = dest.path.rsplit("/", 1)[0]
+      rename_to = src_file.read().strip()
+      late_renametos.append([f"{dest_dir}/{rename_from}", f"{dest_dir}/{rename_to}"])
     elif src.name.endswith(".append"):
       dest.path = dest.path[:-len(".append")]
       assertf(os.path.exists(dest.path), f"Cannot append to nonexistent file: '{dest.path}'")
@@ -276,5 +283,9 @@ if __name__ == "__main__":
     clean_template()
     for src_path in ["modloader_overrides", "mod_overrides"]:
       apply_overrides(PathInfo.from_dir_path(src_path), PathInfo.from_dir_path("current", target_version))
+    for renameto in late_renametos:
+      src_path, dest_path = renameto
+      print(f"  '{src_path}' -> '{dest_path}'")
+      os.rename(src_path, dest_path)
     for path in late_removes:
       clean_path(path, True)
