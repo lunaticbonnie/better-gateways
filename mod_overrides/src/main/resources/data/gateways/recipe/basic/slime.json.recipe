@@ -1,0 +1,15 @@
+type = "shaped"
+group = "gateways"
+
+items :: {}
+#.item = "minecraft:slime_ball"
+P.item = "minecraft:ender_eye"
+
+shape :: []
+"###"
+"#P#"
+"###"
+
+output :: {}
+result.id = "gateways:gate_pearl"
+gateway = "gateways:basic/slime"

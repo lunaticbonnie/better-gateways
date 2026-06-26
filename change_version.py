@@ -5,6 +5,7 @@ import sys
 import time
 from typing import cast
 from zipfile import ZipFile
+from recipe_baker import *
 
 env = {k.lower(): v for k, v in os.environ.items()}
 def assertf(condition: bool, string: str):
@@ -57,21 +58,24 @@ class PathInfo:
     if self.name.endswith(".renamefrom"):
       name = name[:-len(".renamefrom")]
       early_type_order = 0
+    elif self.name.endswith(".recipe"):
+      name = name[:-len(".recipe")]
+      type_order = 1
     elif self.name.endswith(".csv"):
       name = name[:-len(".csv")]
-      type_order = 1
+      type_order = 2
     elif self.name.endswith(".append"):
       name = name[:-len(".append")]
-      type_order = 2
+      type_order = 3
     elif self.name.endswith(".renameto"):
       name = name[:-len(".renameto")]
-      type_order = 3
+      type_order = 4
     elif self.name.endswith(".remove"):
       name = name[:-len(".remove")]
-      type_order = 4
+      type_order = 5
     elif self.name.endswith(".softremove"):
       name = name[:-len(".softremove")]
-      type_order = 5
+      type_order = 6
     version = parse_version(self.version)
     return [is_dir, early_type_order, name, type_order, version.modloader, version.comparison == "+", version.numbers, version.continued]
 
@@ -209,6 +213,9 @@ def apply_overrides(src: PathInfo, dest: PathInfo):
       assertf(os.path.exists(dest.path), f"Cannot append to nonexistent file: '{dest.path}'")
       with open(dest.path, "a") as dest_file:
         dest_file.write(src_file.read())
+    elif src.name.endswith(".recipe"):
+      dest.path = dest.path[:-len(".recipe")]
+      bake_recipe(src.path, dest.path, parse_version(dest.version).numbers)
     else:
       # create or overwrite the file
       src_file.close()
